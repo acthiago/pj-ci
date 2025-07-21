@@ -13,6 +13,10 @@ jobs:
     strategy:
       matrix:
         node-version: [18, 20]
+        os: [ubuntu-latest, windows-latest]
+
+
+        
     steps:
 
       
@@ -23,12 +27,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          os: ${{ matrix.os }}
 
       - name: Instalar dependências
-        run: npm install
+        run: npm install  
 
       - name: Executar testes
-        run: npx jest --ci --coverage
+        run: npx jest --ci --coverage --coverageReporters=json-summary
 
       # - name: SonarCloud Scan
       #   uses: SonarSource/sonarcloud-github-action@v2
