@@ -3,14 +3,19 @@ name: CI
 on:
 
   pull_request:
-    branches: [ develop ]
+    branches: [ develop, main ]
 
 jobs:
 
 
   build-test-sonar:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20]
     steps:
+
+      
       - name: Checkout código
         uses: actions/checkout@v3
 
