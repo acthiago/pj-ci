@@ -10,6 +10,11 @@ jobs:
 
   build-test-sonar:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20]
+        os: [ubuntu-latest]
+
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
@@ -17,7 +22,8 @@ jobs:
       - name: Instalar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: ${{ matrix.node-version }}
+          os: ${{ matrix.os }}
 
       - name: Instalar dependências
         run: npm install
