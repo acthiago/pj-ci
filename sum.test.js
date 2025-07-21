@@ -10,7 +10,7 @@ describe('sum', () => {
 
   // Testa a soma de dois números negativos
   it('soma números negativos', () => {
-    expect(sum(-2, -3)).toBe(-8);
+    expect(sum(-2, -3)).toBe(-5);
   });
 
   // Testa a soma de um número positivo com um negativo
