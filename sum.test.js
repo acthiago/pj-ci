@@ -18,7 +18,7 @@ describe('sum', () => {
     expect(sum(5, -2)).toBe(3);
   });
 
-
+  // Testa a soma de zero com zero
   it('soma zero', () => {
     expect(sum(0, 0)).toBe(0);
     expect(sum(0, 5)).toBe(5);
